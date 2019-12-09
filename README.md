@@ -1,124 +1,23 @@
 # gemstone
 
-This is a template for a modular [Discord](https://discordapp.com/) chat bot using meew0's [discordrb](https://github.com/meew0/discordrb).
+This based off of a template for a modular [Discord](https://discordapp.com/) chat bot using meew0's [discordrb](https://github.com/meew0/discordrb).
 
-This template has several objectives:
+This bot was made for a meme and is useful for tracking how problematic certain users in a discord server are.
 
-- Provide a modular bot template for novice users that is easy to build on and extend
-- A structure that is YARDoc friendly so you can generate awesome docs for your bot right away for your users
-- Rubocop friendly
-- Implements [bundler](http://bundler.io/) for managing your gems
+Commands:
+!yikes (username) (amount)
+  This command will give a user a certain amount of "yikes" and defaults to 1 if no value is specified. The bot will then anounce to the server the amount of yikes given. Only a member with the role "Yikelord" can use this command.
+  e.g. !yikes @xXusername420Xx 69 will give xXusername430Xx 69 yikes
 
-## Setup
+!woke (username) (amount)
+  This command will give a user a certain amount of "woke" and defaults to 1 if no value is specified. The bot will then anounce to the server the amount of woke given. Woke points count against a user's net yike score. Only a member with the role "Yikelord" or "Woke Bloke" can use this command.
+  e.g. !woke @xXusername420Xx 69 will give xXusername430Xx 69 wokes
 
-1. `git clone https://github.com/z64/gemstone.git`
-1. `cd gemstone`
-1. delete the `.git` folder (`rm -rf .git`)
-1. `git init` to start a new repo for your bot
-1. `gem install bundler` and `gem install rake` if you haven't yet
-1. `rake install`
+!leaders
+  TODO
 
-Follow steps in the next section to configure your bot and do a first-time run.
+!leaderboard
+  TODO
 
-## Configuring and running your bot
-
-Make a copy of [config-template.yaml](https://github.com/z64/gemstone/blob/master/data/config-template.yaml) and rename it to `config.yaml` *exactly*.
-
-Fill out each field provided to set up a minimal discord bot, with a few commands and an event to get you started.
-
-To run your bot, open your terminal and run `rake` in the top level folder of your bot. You're free to make something like a bash script, or Windows batch file that will do this for you at the click of an icon. You can also do other things before running your bot this way.
-
-**For example,** here is my `run.sh` file:
-
-```bash
-while true
-do
-  echo "updating from git.."
-  git pull
-
-  echo "running rubocop.."
-  rubocop src
-
-  echo "updating documentation.."
-  yardoc src
-
-  echo "starting bot.."
-  rake
-done
-```
-
-If my bot crashes, or I run a restart command, the bot will exit and update itself as shown.
-
-## Adding commands and events
-
-Following `discordrb`'s [documentation](http://www.rubydoc.info/gems/discordrb), adding new commands and events is "easy"
-
-### Adding a command
-
-Create a new `*.rb` file here for your command: `/src/modules/commands/my_command.rb`
-
-Start with the following structure, and fill in whatever you would like that command to do, following `discordrb`'s documenation:
-
-```ruby
-module Bot::DiscordCommands
-  # Document your command
-  # in some YARD comments here!
-  module MyCommand
-    extend Discordrb::Commands::CommandContainer
-    command :my_command do |event|
-      # do discord things!
-    end
-  end
-end
-```
-
-Save the file, and start the bot. The new command file will be detected and added into the bot automatically.
-
-### Adding an event
-
-Create a new `*.rb` file here for your command: `/src/modules/events/my_event.rb`
-
-Start with the following structure, and fill in whatever you would like that command to do, following `discordrb`'s documenation:
-
-```ruby
-module Bot::DiscordEvents
-  # Document your event
-  # in some YARD comments here!
-  module MyEvent
-    extend Discordrb::EventContainer
-    member_join do |event|
-      # do discord things!
-    end
-  end
-end
-```
-
-Save the file, and start the bot. The new event file will be detected and added into the bot automatically.
-
-## Generating docs
-
-Install YARD.
-
-`gem install yard`
-
-In the top level folder, run:
-
-`yardoc`
-
-Your docs will be generated in a new folder, `doc/`.
-
-## Checking style with rubocop
-
-Install rubocop.
-
-`gem install rubocop`
-
-In the top level folder, run:
-
-`rubocop`
-
-## Support
-
-Join us on the [Discord API server](https://discord.gg/0SBTUU1wZTWfFQL2)!
-
-You can find me on discord, I'm `z64#1337`.
+!score
+  TODO
