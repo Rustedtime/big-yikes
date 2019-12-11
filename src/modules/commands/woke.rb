@@ -3,7 +3,7 @@ module Bot::DiscordCommands
     # This command can only be used by the Woke Bloke
     module Woke
       extend Discordrb::Commands::CommandContainer
-      command :woke do |event, username, amount = 1|
+      command :woke do |event, id, amount = 1|
         x = event.author.roles.find { |role| role.name == 'Yikelord' }
         y = event.author.roles.find { |role| role.name == 'Woke Bloke' }
         if x.nil? && y.nil?
