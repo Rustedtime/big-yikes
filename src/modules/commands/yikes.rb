@@ -9,6 +9,7 @@ module Bot::DiscordCommands
         event.channel.send_temporary_message("You are not worthy. I can only be commanded by the all powerful Yikelord.", 15)
         break
       end
+      id.gsub('!', '')
       user = Bot::Database::Users.find_or_create(user_id: id)
       user.update(yikes: user[:yikes] + amount.to_i)
       totalYikes = user[:yikes]

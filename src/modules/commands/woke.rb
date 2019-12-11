@@ -10,6 +10,7 @@ module Bot::DiscordCommands
           event.channel.send_temporary_message("You are not worthy. That command can only be used by the esteemed 'Woke Bloke' or the mighty 'Yikelord'.", 15)
           break
         end
+        id.gsub('!', '')
         user = Bot::Database::Users.find_or_create(user_id: id)
         user.update(woke: user[:woke] + amount.to_i)
         totalWoke = user[:woke]
