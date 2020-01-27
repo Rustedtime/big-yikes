@@ -15,7 +15,7 @@ module Bot::DiscordCommands
       totalYikes = user[:yikes]
       message = "#{id} got #{amount} Yikes!\nYou now have #{totalYikes} Yikes!"
       max = Bot::Database::Users.max(:yikes)
-      if max == user[:yikes]
+      if max === user[:yikes]
         message += "\n#{id} is the most problematic"
       end
       event.channel.send_message(message)

@@ -3,8 +3,12 @@ module Bot::DiscordCommands
     module Leaders
       extend Discordrb::Commands::CommandContainer
       command :leaders do |event|
-        Bot::Database::Users.each { |user| event.channel.send_message("#{user[:user_id]} has #{user[:yikes]} yikes!")  }
-        #event.channel.send_message("'username_woke' is the most woke, and 'username_yikes' is the most problematic.")
+        puts(Bot::Database::Users.max(:woke))
+        wokest = Bot::Database::Users.where(Sequel[:woke] === Bot::Database::Users.max(:woke))
+        woke_id = wokest[:user_id]
+        problematic = Bot::Database::Users.where(Sequel[:yikes] === Bot::Database::Users.max(:yikes))
+        problem_id = problematic[:user_id]
+        event.channel.send_message("#{woke_id} is the most woke, and #{problem_id} is the most problematic.")
       end
     end
   end
