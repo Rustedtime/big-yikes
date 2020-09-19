@@ -4,6 +4,8 @@ This based off of a template for a modular [Discord](https://discordapp.com/) ch
 
 This bot was made for some friends and is useful for tracking how problematic certain users are in a discord server.
 
+This is very much a work in progress and I am new to Ruby so advice and suggestions are appreciated.
+
 Commands:
 !yikes (username) (amount)
   This command will give a user a certain amount of "yikes" and defaults to 1 if no value is specified. The bot will then anounce to the server the amount of yikes given. Only a member with the role "Yikelord" can use this command.
