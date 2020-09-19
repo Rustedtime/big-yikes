@@ -2,7 +2,7 @@
 
 This based off of a template for a modular [Discord](https://discordapp.com/) chat bot using meew0's [discordrb](https://github.com/meew0/discordrb).
 
-This bot was made for a meme and is useful for tracking how problematic certain users in a discord server are.
+This bot was made for some friends and is useful for tracking how problematic certain users are in a discord server.
 
 Commands:
 !yikes (username) (amount)
